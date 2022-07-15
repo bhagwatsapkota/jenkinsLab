@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'python EXAMPLE-master/new.py'
+        bat 'python new.py'
       }
     }
 
@@ -16,13 +16,13 @@ pipeline {
       parallel {
         stage('Test') {
           steps {
-            sh 'python3 test_hello.py'
+            bat 'python3 test_hello.py'
           }
         }
 
         stage('Test-2') {
           steps {
-            sh 'python3 test_world.py'
+            bat 'python3 test_world.py'
           }
         }
 
@@ -31,7 +31,7 @@ pipeline {
 
     stage('error') {
       steps {
-        sh 'python3 basic_py_file.py'
+        bat 'python3 basic_py_file.py'
       }
     }
 
